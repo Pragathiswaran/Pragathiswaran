@@ -1,0 +1,120 @@
+body{
+    background-color: #282A35;
+}
+header{
+    background-color: white;
+    padding-bottom: 5px;
+    position: relative;
+    right: 8px;
+    margin-top: -8px;
+    width: 1534px;
+}   
+.button{
+    padding: 20px;
+    margin-left: 1px;
+    background-color: green;
+    border: none;
+    font-size: 20px;
+    color : white;
+    text-align: center;
+    margin-left: -4px;
+}
+
+.button1{
+    background-color: white;
+    color : rgb(44, 42, 42);
+}
+
+.button1:hover{
+    background-color: green;
+    color: white;
+}
+
+input[type=text]{
+    padding: 15px;
+    border-radius: 25px;
+    width:160px;
+    border: 2px solid rgb(123, 123, 123);
+    position: relative;
+    height: 10px;
+}
+
+.searchbutton{
+    padding: 18px;
+    border: 2px solid black;
+    border-radius: 100%;
+    position: relative;
+    left: -43px;
+    bottom: 4px;
+    background-color: white;
+    margin-right: 50px;
+    border: none;
+}
+.searchbutton:hover{
+    background-color: rgb(181, 167, 167);
+}
+.lightordark{
+    position: relative;
+    right: 50px;
+    padding: 8px;
+    border:3px solid black;
+    border-radius:100px;
+    bottom:5px;
+    background-color: white;
+}
+.buttonall{
+    padding : 15px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.button2{
+    border: none;
+    background-color: white;
+}
+
+.button2:hover{
+    border-radius: 30px;
+    background-color: rgb(218, 217, 217);
+}
+
+.buttonsignup{
+    padding : 14px;
+    width: 130px;
+    border-radius: 30px;
+    background-color: rgb(81, 234, 81);
+    color : white;
+    font-size: 18px;
+    border: none;
+    text-align: 20px;
+    position: relative;
+    left: 0px;
+}
+
+.buttonsignup:hover{
+    background-color: green;
+}
+
+.buttonlogin{
+    padding: 14px 30px;
+    border:none;
+    border-radius: 30px;
+    background-color: grey;
+    font-size: 18px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.buttonforlanguages{
+    padding:20px;
+    border:none;
+    background-color: #282A35;
+    color:white;
+    font-size: 16px;
+    position: relative;
+    right: 8px;
+}
+
+.buttonforlanguages:hover{
+    background-color: black;
+}
+
