@@ -172,18 +172,20 @@ td{
     color: rgb(90, 131, 162);
 }
 
-.result input{
+.form .result {
     position: relative;
     top:30px;
     font-weight: 10%;
     background-color:#f2dede;
     width: 250px;
-    left: -85px;
+    left: -80px;
     border-radius: 2px;
     text-align: center;
+    color:red;
 }
 
-.error input{
-    padding: 10px;
+.form.error div{
+    padding:15px;
+    
 }
 

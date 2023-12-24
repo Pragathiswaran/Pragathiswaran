@@ -11,7 +11,7 @@
             <div class="result"></div>
             <input type="text" name="username" placeholder="Username..." id="username"><br>
             <input type="password" name="password" placeholder="Password..." id="password">
-            <button class="buttonsignin" >Sign in</button>
+            <button type="submit" class="buttonsignin" >Sign in</button>
             <a href="">ForgotPassword</a>
         </form>
     </div>
