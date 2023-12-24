@@ -1,5 +1,4 @@
 body{
-    background-image: url('image/backgroundimage.jpg');
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
@@ -172,3 +171,19 @@ td{
     text-align: center;
     color: rgb(90, 131, 162);
 }
+
+.result input{
+    position: relative;
+    top:30px;
+    font-weight: 10%;
+    background-color:#f2dede;
+    width: 250px;
+    left: -85px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.error input{
+    padding: 10px;
+}
+

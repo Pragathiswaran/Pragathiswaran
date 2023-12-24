@@ -7,10 +7,11 @@
                  password to log on:</p>
             <img src="image/lock.png" class="lock">
         </div>
-        <form class="form">
-            <input type="text" placeholder="Username..."><br>
-            <input type="password" placeholder="Password...">
-            <button class="buttonsignin">Sign in</button>
-            <a href="index.html">ForgotPassword</a>
+        <form class="form" id="form1">
+            <div class="result"></div>
+            <input type="text" name="username" placeholder="Username..." id="username"><br>
+            <input type="password" name="password" placeholder="Password..." id="password">
+            <button class="buttonsignin" >Sign in</button>
+            <a href="">ForgotPassword</a>
         </form>
     </div>

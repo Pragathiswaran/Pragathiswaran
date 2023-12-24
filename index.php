@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php load_template("_head");?>
-<body>
+<body background="image/portal-login.jpg">
    <?php load_template("_navbar"); 
          load_template("_loginform");
          load_template("_footer");
