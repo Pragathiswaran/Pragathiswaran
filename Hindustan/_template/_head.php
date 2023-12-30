@@ -5,5 +5,5 @@
     <title>Hindustan Institute of Technology & Science - Student/Parent Portal</title>
     <link rel="icon" href="image/logo.png" type="image/x-icon">
     <script src="js/authentication.js" defer></script>
-    <link rel="stylesheet" href="/timeline/css/<?php print(basename($_SERVER['PHP_SELF'],'.php')) ?>.css">
+    <link rel="stylesheet" href="/timeline/Hindustan/css/<?php print(basename($_SERVER['PHP_SELF'],'.php')) ?>.css">
 </head>
