@@ -5,30 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    img{
-        width: 50px;
-        height: 50px;
-        padding-left: 20px;
-        margin-right: 50px;
-
-    }
-
-    form{
-        width: 600px;
-        background-color: antiquewhite;
-        margin: 20vh auto 0 auto;
-    }
-</style>
+<link rel="stylesheet" href="indxe.css">
 <body>
-    <form>
-        <h1>register</h1>
-        <div>
-            <span><img src="image/google.png" alt="google"></span>
-            <span><img src="image/fb.png" alt="facebook"></span>
-            <span><img src="image/github.png" alt="github"></span>
-            <span><img src="image/linkedin.jpg" alt="linkedin"></span>
+    <form class="form-wrapper">
+        <h1 class="form-heading">Register</h1>
+        <div class="social-wrapper">
+          <a href=""><img class="social-logo" src="image/google.png" alt="google"></a>
+          <a href=""><img class="social-logo" src="image/fb.png" alt="facebook"></a>
+          <a href=""><img class="social-logo" src="image/github.png" alt="github"></a>
+          <a href=""><img class="social-logo" src="image/linkedin.jpg" alt="linkedin"></a>  
         </div>
+        <div class="input-wrapper">
+            <div>
+                <input type="text" id="username" name="username" placeholder="username" class="input-box">
+            </div>
+            <div>
+                <input type="email" id="email" name="email" placeholder="Email" class="input-box">
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="Password" class="input-box">
+            </div>
+            <div>
+                <input type="password" id="cpassword" name="cpassword" placeholder="Confirm password" class="input-box">
+            </div>
+        </div>
+        <div>
+            <input class="form-button" type="submit" value="Register">
+        </div>        
     </form>
 </body>
 </html>
