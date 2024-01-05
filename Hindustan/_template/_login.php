@@ -25,7 +25,7 @@ if (!$result) {
             <input type="text" name="username" placeholder="Username..." id="usernamelog"><br>
             <input type="password" name="password" placeholder="Password..." id="passwordlog">
             <button type="submit" class="buttonsignin" >Sign in</button>
-            <span class="login-link">Don't have any account<a href="">Sign up</a></span>
+            <span class="login-link">Don't have any account <a href="signup.php">Sign up</a></span>
         </form>
     </div>
 <?php
@@ -34,16 +34,16 @@ if (!$result) {
             header('Location:test.php');
             exit();
         } else { ?>
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.querySelector('#formlog');
-                const _username = document.querySelector('#usernamelog');
+            <script defer>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const form = document.querySelector('#formlog');
+                    const _username = document.querySelector('#usernamelog');
 
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    setError(_username, 'Invalid username or password from database');
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        setError(_username, 'Invalid username or password from database');
+                    });
                 });
-            });
-        </script>
+            </script>
         <?php  }
     } 

@@ -110,7 +110,11 @@ input:focus{
 }
 .login-link{
     font-size: 15px;
-    color: green;
+    margin-left: 20px;
+}
+
+.login-link a{
+    color: rgb(68, 136, 237);
 }
 .table{
     height:500px;
