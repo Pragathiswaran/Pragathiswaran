@@ -1,19 +1,17 @@
 body{
-    height: 100%; 
+    margin: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.img{
-    height: 50px;
-    margin-bottom: 10px;
-    position: relative;
-    left: 178px;
-    top:4px;
+.logo{
+    height: 20px;
+    padding: 3px;
+    margin-left:150px;
 }
 .navbar{
     height: 60px;
-    width: 1525px;
+    width: 100%;
     position: fixed;
     top:0px;
     right:0px;
