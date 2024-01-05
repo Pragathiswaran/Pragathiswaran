@@ -1,7 +1,9 @@
 const form = document.querySelector('#form1');
 const username = document.querySelector('#username');
 const password = document.querySelector('#password');
-let success = true;
+const email = document.querySelector('#email');
+const phone = document.querySelector('#phone');
+
 
 form.addEventListener('submit',(e)=>{
     
@@ -11,8 +13,11 @@ form.addEventListener('submit',(e)=>{
 })
 
 function validateinput(){
+    let success = true;
     const usernameval = username.value.trim();
     const passwordval = password.value.trim();
+    const emailval = email.value.trim();
+    const phoneval = phone.value.trim();
 
     if(usernameval === ""){
         success = false;
@@ -32,6 +37,22 @@ function validateinput(){
     }
     else{
         setSuccess(password)
+    }
+
+    if(emailval === ""){
+        success = false;
+        setError(email,"Invalid username or password")
+    }
+    else{
+        setSuccess(email)
+    }
+
+    if(phoneval === ""){
+        success = false;
+        setError(phone,"Invalid username or password")
+    }
+    else{
+        setSuccess(phone)
     }
 
     return success;

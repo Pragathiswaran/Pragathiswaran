@@ -5,7 +5,7 @@ body{
     background-size: cover;
 }
 .logo{
-    height: 20px;
+    height: 50px;
     padding: 3px;
     margin-left:150px;
 }
@@ -13,8 +13,6 @@ body{
     height: 60px;
     width: 100%;
     position: fixed;
-    top:0px;
-    right:0px;
     background-color: white;
     z-index: 1000;
 }
@@ -68,10 +66,10 @@ p{
 .form{
     border: 1px solid black;
     position: relative;
-    left: 990px;
     top:30px;
-    padding: 0px 110px 50px 110px;
-    width: 120px;
+    width: 300px;
+    margin-left: 65.2%;
+    padding: 20px;
     background-color: rgb(235, 235, 235);
     margin-top: 30px;
     border: none;
@@ -81,8 +79,6 @@ p{
 input{
    margin-bottom: 15px;
    position: relative;
-   top:40px;
-   right: 85px;
    padding: 10px 20px;
    width: 250px;
    outline: none;
@@ -102,10 +98,7 @@ input:focus{
     box-shadow: 1px 2px 8px rgba(88, 174, 255, 0.587), 0px 0px 2px rgba(88, 174, 255, 0.591);
 }
 .buttonsignin{
-    position: relative;
-    top: 40px;
-    right: 85px;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: rgb(24, 173, 24);
@@ -118,65 +111,59 @@ input:focus{
 a{
     position:relative;
     top:10px;
-    left: 5px;
+    left: 50px;
     font-size: 15px;
     color:rgb(66, 129, 232);
     font-size: 14px;
 }
 .table{
-    height: 430px;
-    width: 1519px;
-    position: relative;
-    top:70px;
-    right: 8px;
+    height:500px;
+    width: 100%;
+    margin-top:70px;
     background-color: white;
 }
 table, th, td {
     position: relative;
     border:1px solid rgb(212, 212, 212);
     border-collapse: collapse;
-    width: 1180px;
+    width: 80%;
     text-align: left;
 }
 table{
-    position: relative;
-    top:70px;
-    left:170px;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 th{
-    position: relative;
-    height: 30px;
+    /* position: relative; */
+    height: 10px;
     font-weight: lighter;
     background-color: rgb(197, 230, 245);
     border:1px solid rgb(212, 212, 212);
     color: rgb(48, 84, 147);
-    text-align: justify;
+    padding: 10px;
 }   
 td{
-    position: relative;
-    left: 10px;
-    right: 10px;
-    height: 10px;
+    padding: 20px;
 }
 .footer{
     position: relative;
-    height: 30px;
-    width: 1517px;
-    right: 8px;
-    top:37px;
+    height: 20px;
+    width: 99.2.5%;
     background-color: rgb(188, 235, 247);
     border: 1px solid rgb(107, 177, 230);
     text-align: center;
     color: rgb(90, 131, 162);
+    padding: 6px;
 }
 
 .form .result {
-    position: relative;
-    top:30px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: 10%;
     background-color:#f2dede;
     width: 250px;
-    left: -80px;
     border-radius: 2px;
     text-align: center;
     color:red;

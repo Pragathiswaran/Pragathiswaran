@@ -7,7 +7,7 @@
                  password to log on:</p>
             <img src="image/lock.png" class="lock">
         </div>
-        <form class="form" id="form1">
+        <form class="form" method="post" id="form1">
             <div class="result"></div>
             <input type="text" name="username" placeholder="Username..." id="username"><br>
             <input type="password" name="password" placeholder="Password..." id="password">
