@@ -25,7 +25,7 @@ if (!$result) {
             <input type="text" name="username" placeholder="Username..." id="usernamelog"><br>
             <input type="password" name="password" placeholder="Password..." id="passwordlog">
             <button type="submit" class="buttonsignin" >Sign in</button>
-            <span>Don't have an account <a href="">Sign up</a></span>
+            <span class="login-link">Don't have any account<a href="">Sign up</a></span>
         </form>
     </div>
 <?php

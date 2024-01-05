@@ -108,13 +108,9 @@ input:focus{
 .buttonsignin:hover{
     background-color: rgb(1, 114, 1);
 }
-a{
-    position:relative;
-    top:10px;
-    left: 50px;
+.login-link{
     font-size: 15px;
-    color:rgb(66, 129, 232);
-    font-size: 14px;
+    color: green;
 }
 .table{
     height:500px;

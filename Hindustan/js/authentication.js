@@ -36,7 +36,7 @@ function validateinput(){
 
     if(usernameval === ""){
         success = false;
-        setError(username,"Invalid username or password")
+        setError(username,"Username is Requried")
     }
     else{
         setSuccess(username)
@@ -44,11 +44,11 @@ function validateinput(){
 
     if(passwordval === ""){
         success = false;
-        setError(password,"Invalid username or password")
+        setError(password,"Password is Requied")
     }
     else if(passwordval.length<8){
         success = false;
-        setError(password,"Invalid username or password")
+        setError(password,"Password atleast in 8 characters")
     }
     else{
         setSuccess(password)
@@ -56,7 +56,7 @@ function validateinput(){
 
     if(emailval === ""){
         success = false;
-        setError(email,"Invalid username or password")
+        setError(email,"Email is Requried")
     }
     else{
         setSuccess(email)
@@ -64,7 +64,7 @@ function validateinput(){
 
     if(phoneval === ""){
         success = false;
-        setError(phone,"Invalid username or password")
+        setError(phone,"Phone number is Requried")
     }
     else{
         setSuccess(phone)
