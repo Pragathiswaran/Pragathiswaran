@@ -1,16 +1,30 @@
-const form = document.querySelector('#form1');
+const form = document.querySelector('#form');
 const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
+const formlog = document.querySelector('#formlog');
+const usernamelog = document.querySelector('#usernamelog');
+const passwordlog = document.querySelector('#passwordlog');
 
-
-form.addEventListener('submit',(e)=>{
+if(form){
+    form.addEventListener('submit',(e)=>{
     
-    if(!validateinput()){
-        e.preventDefault();
-    }
-})
+        if(!validateinput()){
+            e.preventDefault();
+        }
+    })
+}
+
+if(formlog){
+    formlog.addEventListener('submit',(r)=>{
+    
+        if(!validateinputlog()){
+            r.preventDefault();
+        }
+    })
+}
+
 
 function validateinput(){
     let success = true;
@@ -18,6 +32,7 @@ function validateinput(){
     const passwordval = password.value.trim();
     const emailval = email.value.trim();
     const phoneval = phone.value.trim();
+
 
     if(usernameval === ""){
         success = false;
@@ -56,6 +71,32 @@ function validateinput(){
     }
 
     return success;
+}
+
+function validateinputlog(){
+    success = true;
+    const usernamelogval = usernamelog.value.trim();
+    const passwordlogval = passwordlog.value.trim();
+    if(usernamelogval === ""){
+        success = false;
+        setError(usernamelog,"Invalid username or password")
+    }
+    else{
+        setSuccess(usernamelog)
+    }
+    if(passwordlogval === ""){
+        success = false;
+        setError(passwordlog,"Invalid username or password")
+    }
+    else if(passwordlogval.length<8){
+        success = false;
+        setError(passwordlog,"Invalid username or password")
+    }
+    else{
+        setSuccess(passwordlog)
+    }
+    return success;
+
 }
 
 function setError(element,messsage){

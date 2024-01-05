@@ -135,10 +135,6 @@ td{
     margin-top: 5px;
 }
 
-.inputgroup.success input{
-    border-color: rgb(75, 255, 75);
-}
-
 .inputgroup.error input{
     border-color: red;
 }
