@@ -3,9 +3,9 @@ const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-const formlog = document.querySelector('#formlog');
-const usernamelog = document.querySelector('#usernamelog');
-const passwordlog = document.querySelector('#passwordlog');
+//const formlog = document.querySelector('#formlog');
+// const usernamelog = document.querySelector('#usernamelog');
+// const passwordlog = document.querySelector('#passwordlog');
 
 if(form){
     form.addEventListener('submit',(e)=>{
@@ -16,14 +16,14 @@ if(form){
     })
 }
 
-if(formlog){
-    formlog.addEventListener('submit',(r)=>{
+// if(formlog){
+//     formlog.addEventListener('submit',(r)=>{
     
-        if(!validateinputlog()){
-            r.preventDefault();
-        }
-    })
-}
+//         if(!validateinputlog()){
+//             r.preventDefault();
+//         }
+//     })
+// }
 
 
 function validateinput(){
@@ -73,30 +73,40 @@ function validateinput(){
     return success;
 }
 
-function validateinputlog(){
-    success = true;
-    const usernamelogval = usernamelog.value.trim();
-    const passwordlogval = passwordlog.value.trim();
-    if(usernamelogval === ""){
-        success = false;
-        setError(usernamelog,"Invalid username or password")
-    }
-    else{
-        setSuccess(usernamelog)
-    }
-    if(passwordlogval === ""){
-        success = false;
-        setError(passwordlog,"Invalid username or password")
-    }
-    else if(passwordlogval.length<8){
-        success = false;
-        setError(passwordlog,"Invalid username or password")
-    }
-    else{
-        setSuccess(passwordlog)
-    }
-    return success;
+function validateinputlog(usernamelogval,passwordlogval){
+    let success = true;
+    const _usernamelog = usernamelogval.value.trim();
+    const _passwordlog = passwordlogval.value.trim();
 
+    if(_usernamelog === ""){
+        success = false;
+        setError(usernamelogval,"Invalid username or password")
+    }
+    // else if(_usernamelog !== ""){
+    //     success = false;
+    //     setError(usernamelogval,"Invalid username or password")
+    // }
+    else{
+        setSuccess(usernamelogval)
+    }
+
+    if(_passwordlog === ""){
+        success = false;
+        setError(passwordlogval,"Invalid username or password")
+    }
+    // else if(_passwordlog !== ""){
+    //     success = false;
+    //     setError(passwordlogval,"Invalid username or password")
+    // }
+    else if(_passwordlog.length<8){
+        success = false;
+        setError(passwordlogval,"Invalid username or password")
+    } else{
+        setSuccess(passwordlogval)
+    }
+
+    return success;
+   
 }
 
 function setError(element,messsage){

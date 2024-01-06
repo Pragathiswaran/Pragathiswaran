@@ -1,5 +1,6 @@
 <?php
 $login = false;
+$result = false;
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -7,9 +8,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $login = true;
 } 
 
-if (!$result) {
-    $error_message = 'Invalid username or password from database';
-}
 ?>
 <div class="back">
         <button class="button">Enrollment to Program</button>
@@ -28,22 +26,24 @@ if (!$result) {
             <span class="login-link">Don't have any account <a href="signup.php">Sign up</a></span>
         </form>
     </div>
-<?php
-    if($login == true){
-        if($result){
-            header('Location:test.php');
-            exit();
-        } else { ?>
-            <script defer>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const form = document.querySelector('#formlog');
-                    const _username = document.querySelector('#usernamelog');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('#formlog');
+        const _username = document.querySelector('#usernamelog'); 
+        const _password = document.querySelector('#passwordlog'); 
+        const login = <?php echo json_encode($login); ?>;
+        const result = <?php echo json_encode($result); ?>;
 
-                    form.addEventListener('submit', function (event) {
-                        event.preventDefault();
-                        setError(_username, 'Invalid username or password from database');
-                    });
-                });
-            </script>
-        <?php  }
-    } 
+        form.addEventListener('submit', function (event) {
+            if(login === true && result === true) {
+                window.location.href = 'test.php';
+            } else {
+                if(!validateinputlog(_username,_password)){
+                    event.preventDefault();
+                }
+                
+                
+            }
+        });
+    });
+</script>
