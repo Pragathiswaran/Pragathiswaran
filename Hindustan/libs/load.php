@@ -9,7 +9,7 @@ function authentication($username, $password) {
     if ($username === "pragathis" && $password === "praga@0009") {
         return true;
     } else {
-        return array("username" => $username, "password" => $password);
+        return false;
     }
 }
 

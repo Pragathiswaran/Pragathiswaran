@@ -3,9 +3,6 @@ const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-//const formlog = document.querySelector('#formlog');
-// const usernamelog = document.querySelector('#usernamelog');
-// const passwordlog = document.querySelector('#passwordlog');
 
 if(form){
     form.addEventListener('submit',(e)=>{
@@ -73,40 +70,29 @@ function validateinput(){
     return success;
 }
 
-function validateinputlog(usernamelogval,passwordlogval){
+function validateinputlog(usernamelogval, passwordlogval) {
     let success = true;
     const _usernamelog = usernamelogval.value.trim();
     const _passwordlog = passwordlogval.value.trim();
 
-    if(_usernamelog === ""){
+    if (_usernamelog === "") {
         success = false;
-        setError(usernamelogval,"Invalid username or password")
-    }
-    // else if(_usernamelog !== ""){
-    //     success = false;
-    //     setError(usernamelogval,"Invalid username or password")
-    // }
-    else{
-        setSuccess(usernamelogval)
+        setError(usernamelogval, "Username cannot be empty");
+    } else {
+        setSuccess(usernamelogval);
     }
 
-    if(_passwordlog === ""){
+    if (_passwordlog === "") {
         success = false;
-        setError(passwordlogval,"Invalid username or password")
-    }
-    // else if(_passwordlog !== ""){
-    //     success = false;
-    //     setError(passwordlogval,"Invalid username or password")
-    // }
-    else if(_passwordlog.length<8){
+        setError(passwordlogval, "Password cannot be empty");
+    } else if (_passwordlog.length < 8) {
         success = false;
-        setError(passwordlogval,"Invalid username or password")
-    } else{
-        setSuccess(passwordlogval)
+        setError(passwordlogval, "Password must be at least 8 characters long");
+    } else {
+        setSuccess(passwordlogval);
     }
 
     return success;
-   
 }
 
 function setError(element,messsage){

@@ -3,57 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>Display Input Value</title>
-    <style>
-        .container {
-            text-align: center;
-            margin: 20px;
-            border: 1px solid #ccc; /* Added for better visualization */
-            padding: 10px; /* Initial padding */
-        }
-        
-        #result {
-            color: green;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        
-        #result {
-            color: green;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-
-        }
-        
-    </style>
+   
 </head>
 <body>
-    <div class="container">
-        <form onsubmit="displayInputValue(event)">
-            <label for="inputField">Enter something:</label>
-            <input type="text" id="inputField" required>
-            <button type="submit">Display Value</button>
-        </form>
-        <p id="result"></p>
-    </div>
-
+    <form action="" id="form" class="form">
+        <div class="result" id="result"></div>
+        <input type="text" name="username" class="username" id="username" placeholder="Username">
+        <input type="password" id="password" name="password" class="password">
+        <button type="submit">submit</button>
+    </form>
     <script>
-        function displayInputValue(event) {
-            event.preventDefault(); // Prevent form submission
-        
-            var inputValue = document.getElementById('inputField').value;
-            var resultElement = document.getElementById('result');
-        
-            // Get the current content of the result paragraph
-            var currentContent = resultElement.innerHTML;
-        
-            // Concatenate the current content with the new input value
-            resultElement.innerHTML = currentContent + inputValue + ' ';
-        }
-        
-    </script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('#form');
+            const _username = document.querySelector('.username'); 
+            const _password = document.querySelector('#password'); 
+
+            form.addEventListener('submit', function (event) {
+                if(!validateinputlog(_username,_password)){
+                    event.preventDefault();
+                }
+            });
+        });
+    </script> 
+    <script src="js/authentication.js"> </script>
 </body>
 </html>
