@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-image: url("/image/backgroundimage.jpg");
+    /* background-image: url("/image/backgroundimage.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,14 +39,11 @@ h2{
     font-weight: 500;
 }
 .formwrapper{
-    border: 1px solid black;
-    position: relative;
-    top:30px;
     width: 300px;
     margin-left: 65.2%;
     padding: 20px;
     background-color: rgb(235, 235, 235);
-    margin-top: 30px;
+    margin-top:30px;
     border: none;
     border-radius: 10px;
 }

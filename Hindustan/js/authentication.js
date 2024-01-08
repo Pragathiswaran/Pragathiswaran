@@ -3,7 +3,10 @@ const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-
+const formlog = document.querySelector('#formlog');
+const usernamelog = document.querySelector('#usernamelog'); 
+const passwordlog = document.querySelector('#passwordlog'); 
+                 
 if(form){
     form.addEventListener('submit',(e)=>{
     
@@ -13,14 +16,14 @@ if(form){
     })
 }
 
-// if(formlog){
-//     formlog.addEventListener('submit',(r)=>{
+if(formlog){
+    formlog.addEventListener('submit',(r)=>{
     
-//         if(!validateinputlog()){
-//             r.preventDefault();
-//         }
-//     })
-// }
+        if(!validateinputlog()){
+            r.preventDefault();
+        }
+    })
+}
 
 
 function validateinput(){
@@ -43,9 +46,9 @@ function validateinput(){
         success = false;
         setError(password,"Password is Requied")
     }
-    else if(passwordval.length<8){
+    else if (passwordlog.length < 8) {
         success = false;
-        setError(password,"Password atleast in 8 characters")
+        setError(passwordlog, "Password must be at least 8 characters long");
     }
     else{
         setSuccess(password)
@@ -70,27 +73,43 @@ function validateinput(){
     return success;
 }
 
-function validateinputlog(usernamelogval, passwordlogval) {
+function validateinputlog() {
     let success = true;
-    const _usernamelog = usernamelogval.value.trim();
-    const _passwordlog = passwordlogval.value.trim();
+    const _usernamelogval = usernamelog.value.trim();
+    const _passwordlogval = passwordlog.value.trim();
 
-    if (_usernamelog === "") {
+    if (_usernamelogval === "") {
         success = false;
-        setError(usernamelogval, "Username cannot be empty");
-    } else {
-        setSuccess(usernamelogval);
+        setError(usernamelog, "Username cannot be empty");
+    }
+    else if(_usernamelogval !== "pragathis"){
+        setError(usernamelog, "Invalid Username");
+    }
+     else {
+        setSuccess(usernamelog);
     }
 
-    if (_passwordlog === "") {
+    if (_passwordlogval === "") {
         success = false;
-        setError(passwordlogval, "Password cannot be empty");
-    } else if (_passwordlog.length < 8) {
-        success = false;
-        setError(passwordlogval, "Password must be at least 8 characters long");
-    } else {
-        setSuccess(passwordlogval);
+        setError(passwordlog, "Password cannot be empty");
     }
+    else if (_passwordlogval.length < 8) {
+        success = false;
+        setError(passwordlog, "Password must be at least 8 characters long");
+    }
+    else if(_passwordlogval !== "praga@0009"){
+        setError(passwordlog, "Invalid password");
+    }
+      else {
+        setSuccess(passwordlog);
+    }
+
+    // if((user && pass) === false){
+    //     success = false;
+    //     setError(passwordlog,"Invalid username");
+    // } else {
+    //     setSuccess(password)
+    // }
 
     return success;
 }
@@ -110,3 +129,47 @@ function setSuccess(element){
     errorelement.innerText = '';
     inputgroup.classList.remove('error');
 }
+
+// var name = '<?php echo $name ?>'
+//     if(name === '1'){
+//         alert("success");
+//     } else {
+//         alert("failed");
+// Use an AJAX request to fetch the PHP value asynchronously
+// 
+
+// function validate(){
+//     fetch("test.php")
+//     .then(res => res.json())
+//     .then(data => {
+//        alert(data);
+//     });
+// }
+
+// var xhr = new XMLHttpRequest();
+
+
+// xhr.open('GET', 'test.php', true);
+
+// xhr.onload = function () {
+//   if (xhr.status >= 200 && xhr.status < 300) {
+   
+//     var data = JSON.parse(xhr.responseText);
+
+   
+//     var name = data.name;
+//     var age = data.age;
+//     var city = data.city;
+
+//     alert(name + ', ' + age + ', ' + city);
+//   } else {
+
+//     console.error('Request failed with status:', xhr.status);
+//   }
+// };
+
+// xhr.onerror = function () {
+//   console.error('Network error occurred');
+// };
+
+// xhr.send();

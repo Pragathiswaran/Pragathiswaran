@@ -36,7 +36,7 @@ h3{
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    top:20px;
+    top:10px;
 }
 p{
     font-family: Arial, Helvetica, sans-serif;
@@ -52,52 +52,51 @@ p{
     width: 130px;
     left: 215px;
 }
-.div{
-    border:none;
-    position: relative;
-    top:60px;
-    left:990px;
+.upper-form {
+    border: none;
+    position: absolute; 
+    top: 120px;
+    left: 75%; 
+    transform: translateX(-50%);
     background-color: white;
-    width:340px;
-    height:160px;
-    border-top-right-radius:6px ;
-    border-top-left-radius:6px ;
+    width: 340px;
+    height: 160px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
 }
-.form{
-    border: 1px solid black;
-    position: relative;
-    top:30px;
+
+.form-wrapper {
+    margin-top: 255px;
     width: 300px;
-    margin-left: 65.2%;
+    position: absolute; 
+    left: 75%; 
+    transform: translateX(-50%); 
     padding: 20px;
     background-color: rgb(235, 235, 235);
-    margin-top: 30px;
     border: none;
-    border-bottom-right-radius:4px ;
-    border-bottom-left-radius:4px ;
-}
-input{
-   margin-bottom: 15px;
-   position: relative;
-   padding: 10px 20px;
-   width: 250px;
-   outline: none;
-   border: 1px solid rgb(209, 199, 199);
-   border-radius: 5px; 
-   font-family: Arial, Helvetica, sans-serif;
-   
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
-input::placeholder{
-    position: relative;
-    font-weight: 200px;
-}
+.inputgroup input{
+    margin-top: 10px;
+    padding:10px 20px;
+    width: 250px;
+    outline: none;
+    border: 1px solid rgb(209, 199, 199);
+    border-radius: 5px; 
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    z-index: 10000;
 
-input:focus{
-    border: 1px solid rgb(88, 174, 255);
-    box-shadow: 1px 2px 8px rgba(88, 174, 255, 0.587), 0px 0px 2px rgba(88, 174, 255, 0.591);
-}
-.buttonsignin{
+ }
+ 
+ .inputgroup input:focus{
+     border: 1px solid rgb(88, 174, 255);
+     box-shadow: 1px 2px 8px rgba(88, 174, 255, 0.587), 0px 0px 2px rgba(88, 174, 255, 0.591);
+ }
+.btn-login{
+    margin-top: 10px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -105,7 +104,7 @@ input:focus{
     color: white;
     width: 70px;
 }
-.buttonsignin:hover{
+.btn-login:hover{
     background-color: rgb(1, 114, 1);
 }
 .login-link{
@@ -119,7 +118,7 @@ input:focus{
 .table{
     height:500px;
     width: 100%;
-    margin-top:70px;
+    margin-top:35%;
     background-color: white;
 }
 table, th, td {
@@ -130,12 +129,11 @@ table, th, td {
     text-align: left;
 }
 table{
-    top: 15%;
+    top: 5%;
     margin-left: auto;
     margin-right: auto;
 }
 th{
-    /* position: relative; */
     height: 10px;
     font-weight: lighter;
     background-color: rgb(197, 230, 245);
@@ -157,20 +155,13 @@ td{
     padding: 6px;
 }
 
-.form .result {
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 10%;
-    background-color:#f2dede;
-    width: 250px;
-    border-radius: 2px;
-    text-align: center;
-    color:red;
+.inputgroup .result {
+    font-size: 15px;
+    color: red;
+    margin-bottom:10px;
 }
 
-.form.error div{
-    padding:15px;
-    
+.inputgroup.error input{
+    border-color: red;
 }
 

@@ -1,8 +1,29 @@
 <?php
+$signup = false;
+if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']) && !empty($_POST['password'])){
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+    $signup = true;
+    $result = new validate();
+    $res_result = $result->Signup($username,$email,$phone,$password);
 
+        $signup = true;
+    
+} 
 
+if($signup){
+    if($res_result){
+        header('Location:test.html');
+        exit();
+    }else{ 
+        ?>
+        <h1>signup failed</h1>
+        <?php
+    }
+} else {
 ?>
-
 <div>
     <button class="button">Enrollment to Program</button>
     <button class="button">Library WebOPAC</button>
@@ -22,7 +43,7 @@
         <div class="result"></div> 
     </div>
     <div class="inputgroup">
-        <input type="password" name="username" id="password" placeholder="Password">
+        <input type="password" name="password" id="password" placeholder="Password">
         <div class="result"></div>
     </div>
     <button type="submit" class="btn-signup" >Sign in</button>
@@ -30,3 +51,4 @@
         <span class="span">Aleady have account <a href="login.php">Login</a></span>
     </div>
 </form>
+<?php }
