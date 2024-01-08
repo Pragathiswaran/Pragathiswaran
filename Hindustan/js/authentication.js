@@ -70,6 +70,13 @@ function validateinput(){
         setSuccess(phone)
     }
 
+    // if(user === '1'){
+    //     success = false;
+    //     setError(username,"Username is already used")
+    // }else{
+    //     setSuccess(username)
+    // }
+
     return success;
 }
 
@@ -82,9 +89,9 @@ function validateinputlog() {
         success = false;
         setError(usernamelog, "Username cannot be empty");
     }
-    else if(_usernamelogval !== "pragathis"){
-        setError(usernamelog, "Invalid Username");
-    }
+    // else if(_usernamelogval !== "pragathis"){
+    //     setError(usernamelog, "Invalid Username");
+    // }
      else {
         setSuccess(usernamelog);
     }
@@ -97,19 +104,12 @@ function validateinputlog() {
         success = false;
         setError(passwordlog, "Password must be at least 8 characters long");
     }
-    else if(_passwordlogval !== "praga@0009"){
-        setError(passwordlog, "Invalid password");
-    }
+    // else if(_passwordlogval !== "praga@0009"){
+    //     setError(passwordlog, "Invalid password");
+    // }
       else {
         setSuccess(passwordlog);
     }
-
-    // if((user && pass) === false){
-    //     success = false;
-    //     setError(passwordlog,"Invalid username");
-    // } else {
-    //     setSuccess(password)
-    // }
 
     return success;
 }
@@ -130,46 +130,3 @@ function setSuccess(element){
     inputgroup.classList.remove('error');
 }
 
-// var name = '<?php echo $name ?>'
-//     if(name === '1'){
-//         alert("success");
-//     } else {
-//         alert("failed");
-// Use an AJAX request to fetch the PHP value asynchronously
-// 
-
-// function validate(){
-//     fetch("test.php")
-//     .then(res => res.json())
-//     .then(data => {
-//        alert(data);
-//     });
-// }
-
-// var xhr = new XMLHttpRequest();
-
-
-// xhr.open('GET', 'test.php', true);
-
-// xhr.onload = function () {
-//   if (xhr.status >= 200 && xhr.status < 300) {
-   
-//     var data = JSON.parse(xhr.responseText);
-
-   
-//     var name = data.name;
-//     var age = data.age;
-//     var city = data.city;
-
-//     alert(name + ', ' + age + ', ' + city);
-//   } else {
-
-//     console.error('Request failed with status:', xhr.status);
-//   }
-// };
-
-// xhr.onerror = function () {
-//   console.error('Network error occurred');
-// };
-
-// xhr.send();

@@ -1,22 +1,23 @@
 <?php
 $login = false;
-$result = false;
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if(($result = authentication($username,$password)) === true){
-        $login = true;
-    }
+    $result = new validate();
+    $login_value = $result->login($username,$password);
+    $login = true;
 } 
 
 if($login === true){
-    if($result === true){
+    if($login_value === true){
         header('Location:test.html');
         exit();
     }else{ 
-    
+        ?>
+        <h1 style="margin-bottom: -120px;">Login failed</h1>
+        <?php
     }
-}
+} else {
     ?>
 
 <div class="back">
@@ -41,3 +42,4 @@ if($login === true){
         <span class="login-link">Don't have any account <a href="signup.php">Sign up</a></span>
     </form>
 </div>
+<?php } ?>
