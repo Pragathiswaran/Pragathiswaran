@@ -52,4 +52,4 @@ if($signup){
         <span class="span">Aleady have account <a href="login.php">Login</a></span>
     </div>
 </form>
-<?php }
+<?php } ?>
