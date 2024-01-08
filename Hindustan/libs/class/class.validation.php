@@ -7,6 +7,18 @@ class validate{
         $db = new connection();
         $this->conn = $db->connect();
     }
+
+    public function checkuser($username){
+        $query = "SELECT * FROM `validation` WHERE username = '$username'";
+        $result = $this->conn->query($query);
+        // $row = $result->fetch_assoc();
+
+        if ($result->num_rows > 0) {
+        return false;
+        } else {
+            return true;
+        }
+    }
     public function Signup($name,$email,$phone,$pass){
        $option= [
             'cost'=> 9,

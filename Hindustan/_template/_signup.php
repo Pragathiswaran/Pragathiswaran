@@ -7,19 +7,20 @@ if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone'])
     $password = $_POST['password'];
     $signup = true;
     $result = new validate();
-    $res_result = $result->Signup($username,$email,$phone,$password);
-
+    $check = $result->checkuser($username);
+    if($check){
+        $res_result = $result->Signup($username,$email,$phone,$password);
         $signup = true;
-    
+    }
 } 
 
 if($signup){
     if($res_result){
-        header('Location:test.html');
+        header('Location:login.php');
         exit();
     }else{ 
         ?>
-        <h1>signup failed</h1>
+        <h1>username already used</h1>
         <?php
     }
 } else {

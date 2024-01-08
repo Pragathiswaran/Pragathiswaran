@@ -1,36 +1,23 @@
 <?php
+// include 'libs/load.php';
+// $conn = new validate();
+// $result = $conn->Signup("pragathis","email@email.com","1234567890","password");
 
-// ob_start(); // Start output buffering
-// if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-//     // This is an AJAX request, output JSON data
-//     $data = array(
-//         'name' => 'John',
-//         'age' => 30,
-//         'city' => 'New York'
-//     );
+// // $conn = new connection();
+// // $result = $conn->connect();
 
-//     // Set the Content-Type header to indicate JSON response
-//     header('Content-Type: application/json');
-
-//     // Output JSON data
-//     echo json_encode($data);
-//     exit();
+// if($result){
+//     echo "success";
+// } else {
+//     echo "failed";
 // }
 
-// ob_end_clean();
-include 'libs/load.php';
-$conn = new validate();
-$result = $conn->Signup("pragathis","email@email.com","1234567890","password");
-
-// $conn = new connection();
-// $result = $conn->connect();
-
-if($result){
-    echo "success";
-} else {
-    echo "failed";
-}
+$user = true;
+echo $user;
 ?>
-
+<script>
+    var user = '<?php echo $user ?>';
+</script>
+<script src="js/authentication.js"></script>
 
 
