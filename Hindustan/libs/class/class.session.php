@@ -1,5 +1,5 @@
 <?php
- class sesssion{
+ class session{
     private $conn;
         
     public function __construct(){
