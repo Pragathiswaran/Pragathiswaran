@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: cover;
+}
+.logo{
+    height: 50px;
+    padding: 3px;
+    margin-left:150px;
+}
+.navbar{
+    top: 0;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
+}
+/* .dropdown{
+    position: relative;
+    top: 80px;
+    left: 140px;
+    margin-left: 20px;
+}
+.dropdown .btn-circle{
+    margin-left: 20px;
+    height: 500px;
+    width: 500px;
+    background-color: blue;
+} */
+
+.wrapper{
+    margin-top :160px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 50%;
+    background-color: #eee;
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+
+.wrapper-content{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+}

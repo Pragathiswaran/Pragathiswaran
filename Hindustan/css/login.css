@@ -11,6 +11,7 @@ body{
     margin-left:150px;
 }
 .navbar{
+    top: 0;
     height: 60px;
     width: 100%;
     position: fixed;
