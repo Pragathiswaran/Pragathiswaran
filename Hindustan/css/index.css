@@ -41,6 +41,7 @@ body{
     background-color: #eee;
     padding: 20px 40px;
     border-radius: 20px;
+    border: none;
 }
 
 .wrapper-content{
