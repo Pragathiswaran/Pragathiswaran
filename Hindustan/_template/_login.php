@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit();
+}
 $login = false;
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
@@ -8,10 +13,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $login = true;
 } 
 
-if($login === true){
-    if($login_value === true){
-        header('Location:test.html');
-        exit();
+if ($login === true) {
+    if ($login_value === true) {
+        $sess = new session();
+        $sess_value = $sess->userSession($username, $password);
+        if ($sess_value) {
+            header('Location: index.php');
+            exit();
+        }
     }else{ 
         ?>
         <h1 style="margin-bottom: -120px;">Login failed</h1>

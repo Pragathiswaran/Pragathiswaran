@@ -11,8 +11,6 @@ class validate{
     public function checkuser($username){
         $query = "SELECT * FROM `validation` WHERE username = '$username'";
         $result = $this->conn->query($query);
-        // $row = $result->fetch_assoc();
-
         if ($result->num_rows > 0) {
         return false;
         } else {
