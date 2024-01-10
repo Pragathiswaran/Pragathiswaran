@@ -7,48 +7,53 @@ const formlog = document.querySelector('#formlog');
 const usernamelog = document.querySelector('#usernamelog'); 
 const passwordlog = document.querySelector('#passwordlog'); 
                  
-if(form){
-    form.addEventListener('submit',(e)=>{
-    
-        if(!validateinput()){
-            e.preventDefault();
-        }
-    })
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        validateinput()
+            .then((isValid) => {
+                if (isValid) {
+                    form.submit();
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    });
 }
 
-if(formlog){
-    formlog.addEventListener('submit',(r)=>{
-    
-        if(!validateinputlog()){
-            r.preventDefault();
-        }
-    })
+if (formlog) {
+    formlog.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        validateinputlog()
+            .then((isValid) => {
+                if (isValid) {
+                    formlog.submit();
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    });
 }
 
 
 function validateinput(){
-    let success = true;
-    const usernameval = username.value.trim();
     const passwordval = password.value.trim();
     const emailval = email.value.trim();
     const phoneval = phone.value.trim();
-
-
-    if(usernameval === ""){
-        success = false;
-        setError(username,"Username is Requried")
-    }
-    else{
-        setSuccess(username)
-    }
+   
+    usernamecheck()
 
     if(passwordval === ""){
         success = false;
         setError(password,"Password is Requied")
     }
-    else if (passwordlog.length < 8) {
+    else if (passwordval.length < 8) {
         success = false;
-        setError(passwordlog, "Password must be at least 8 characters long");
+        setError(password, "Password must be at least 8 characters long");
     }
     else{
         setSuccess(password)
@@ -70,14 +75,6 @@ function validateinput(){
         setSuccess(phone)
     }
 
-    // if(user === '1'){
-    //     success = false;
-    //     setError(username,"Username is already used")
-    // }else{
-    //     setSuccess(username)
-    // }
-
-    return success;
 }
 
 function validateinputlog() {
@@ -89,10 +86,7 @@ function validateinputlog() {
         success = false;
         setError(usernamelog, "Username cannot be empty");
     }
-    // else if(_usernamelogval !== "pragathis"){
-    //     setError(usernamelog, "Invalid Username");
-    // }
-     else {
+    else {
         setSuccess(usernamelog);
     }
 
@@ -104,9 +98,6 @@ function validateinputlog() {
         success = false;
         setError(passwordlog, "Password must be at least 8 characters long");
     }
-    // else if(_passwordlogval !== "praga@0009"){
-    //     setError(passwordlog, "Invalid password");
-    // }
       else {
         setSuccess(passwordlog);
     }
@@ -130,3 +121,50 @@ function setSuccess(element){
     inputgroup.classList.remove('error');
 }
 
+function makeRequest(url) {
+    return new Promise(function (resolve, reject) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    resolve(JSON.parse(this.responseText));
+                } else {
+                    reject("HTTP error: " + this.status);
+                }
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    });
+}
+
+function usernamecheck(){
+    return new Promise((resolve, reject) => {
+        const usernameval = username.value.trim();
+        
+
+        if (usernameval === "") {
+            setError(username, "Username is Required");
+            resolve(false);
+        } else {
+            makeRequest('test.php')
+                .then((response) => {
+                    const phpValue = response.phpValue;
+                    console.log(phpValue);
+
+                    if (phpValue === true) {
+                        setError(username, "Username already exsit");
+                        resolve(false);
+                    } else {
+                        setSuccess(username);
+                        resolve(true);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    reject(error);
+                });
+        }
+    });
+
+}
