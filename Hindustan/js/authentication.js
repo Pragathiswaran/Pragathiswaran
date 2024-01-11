@@ -9,43 +9,36 @@ const passwordlog = document.querySelector('#passwordlog');
                  
 if (form) {
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
 
-        validateinput()
-            .then((isValid) => {
-                if (isValid) {
-                    form.submit();
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        if(validateinput()){
+            e.preventDefault();
+        }
     });
 }
 
 if (formlog) {
-    formlog.addEventListener('submit', (e) => {
-        e.preventDefault();
+    form.addEventListener('submit', (e) => {
 
-        validateinputlog()
-            .then((isValid) => {
-                if (isValid) {
-                    formlog.submit();
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        if(validateinputlog()){
+            e.preventDefault();
+        }
     });
 }
 
 
 function validateinput(){
+    const usernameval = username.value.trim();
     const passwordval = password.value.trim();
     const emailval = email.value.trim();
     const phoneval = phone.value.trim();
    
-    usernamecheck()
+    if(usernameval === ""){
+        success = false;
+        setError(username,"Name is Requried")
+    }
+    else{
+        setSuccess(username)
+    }
 
     if(passwordval === ""){
         success = false;
@@ -138,33 +131,11 @@ function makeRequest(url) {
     });
 }
 
-function usernamecheck(){
-    return new Promise((resolve, reject) => {
-        const usernameval = username.value.trim();
-        
-
-        if (usernameval === "") {
-            setError(username, "Username is Required");
-            resolve(false);
-        } else {
-            makeRequest('test.php')
-                .then((response) => {
-                    const phpValue = response.phpValue;
-                    console.log(phpValue);
-
-                    if (phpValue === true) {
-                        setError(username, "Username already exsit");
-                        resolve(false);
-                    } else {
-                        setSuccess(username);
-                        resolve(true);
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                    reject(error);
-                });
-        }
-    });
-
+function getResponse(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        var phpValue = this.responseJson();
+    }
+    xhttp.open("GET","test.php","true");
+    xhttp.send();
 }
