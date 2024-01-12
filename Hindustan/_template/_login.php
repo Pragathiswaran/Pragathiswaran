@@ -21,10 +21,6 @@ if ($login === true) {
             header('Location: index.php');
             exit();
         }
-    }else{ 
-        ?>
-        <h1 style="margin-bottom: -120px;">Login failed</h1>
-        <?php
     }
 } else {
     ?>

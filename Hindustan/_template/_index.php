@@ -1,4 +1,4 @@
-<!-- <div class="dropdown">
+<div class="dropdown">
     <il class="btn-circle">
        <a href="">hello</a> 
     </il>
@@ -17,8 +17,8 @@
     <il class="btn-circle">
         <a href="">hello</a>
     </il>
-</div> -->
-
-<div class="wrapper">
-<p class="wrapper-content">welcome <?= session_start(); echo $_SESSION['username']; ?></p><br />
 </div>
+
+<svg height="75" width="75">
+  <circle cx="37" cy="37" r="30" fill="red" />
+</svg>

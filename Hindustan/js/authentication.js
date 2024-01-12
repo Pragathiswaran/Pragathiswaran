@@ -3,41 +3,71 @@ const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#phone');
+
 const formlog = document.querySelector('#formlog');
 const usernamelog = document.querySelector('#usernamelog'); 
 const passwordlog = document.querySelector('#passwordlog'); 
                  
 if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-        if(validateinput()){
-            e.preventDefault();
+        if (await validateinput()) {
+            form.submit();
         }
     });
 }
 
 if (formlog) {
-    form.addEventListener('submit', (e) => {
+    formlog.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-        if(validateinputlog()){
-            e.preventDefault();
+        if (await validateinputlog()) {
+            formlog.submit();
         }
     });
 }
 
+function checkUser(username) {
+    return new Promise((resolve, reject) => {
+        var xmlhttp = new XMLHttpRequest();
+        var formData = new FormData();
+        formData.append("username", username);
 
-function validateinput(){
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    resolve(response.phpValue);
+                } else {
+                    reject(new Error("Error in AJAX request"));
+                }
+            }
+        };
+
+        xmlhttp.open("POST", "test.php", true);
+        xmlhttp.send(formData);
+    });
+}
+
+async function validateinput() {
+    let success = true;
     const usernameval = username.value.trim();
     const passwordval = password.value.trim();
     const emailval = email.value.trim();
     const phoneval = phone.value.trim();
-   
-    if(usernameval === ""){
+
+    if (usernameval === "") {
         success = false;
-        setError(username,"Name is Requried")
-    }
-    else{
-        setSuccess(username)
+        setError(username, "Name is Required");
+    } else {
+        const user_available = await checkUser(usernameval);
+        if (!user_available) {
+            success = false;
+            setError(username, "Username already exists");
+        } else {
+            setSuccess(username);
+        }
     }
 
     if(passwordval === ""){
@@ -68,19 +98,25 @@ function validateinput(){
         setSuccess(phone)
     }
 
+    return success;
 }
 
-function validateinputlog() {
+async function validateinputlog() {
     let success = true;
     const _usernamelogval = usernamelog.value.trim();
     const _passwordlogval = passwordlog.value.trim();
 
     if (_usernamelogval === "") {
         success = false;
-        setError(usernamelog, "Username cannot be empty");
-    }
-    else {
-        setSuccess(usernamelog);
+        setError(usernamelog, "Name is Required"); 
+    } else {
+        const user_available = await checkUser(_usernamelogval);
+        if (user_available) {
+            success = false;
+            setError(usernamelog, "Invalid Username"); 
+        } else {
+            setSuccess(usernamelog);
+        }
     }
 
     if (_passwordlogval === "") {
@@ -114,28 +150,3 @@ function setSuccess(element){
     inputgroup.classList.remove('error');
 }
 
-function makeRequest(url) {
-    return new Promise(function (resolve, reject) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    resolve(JSON.parse(this.responseText));
-                } else {
-                    reject("HTTP error: " + this.status);
-                }
-            }
-        };
-        xhttp.open("GET", url, true);
-        xhttp.send();
-    });
-}
-
-function getResponse(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        var phpValue = this.responseJson();
-    }
-    xhttp.open("GET","test.php","true");
-    xhttp.send();
-}

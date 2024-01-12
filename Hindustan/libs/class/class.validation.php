@@ -1,7 +1,8 @@
 <?php
-class validate{
 
-    private $conn= null;
+class validate{
+    
+    private $conn = null;
         
     public function __construct(){
         $db = new connection();
@@ -12,7 +13,7 @@ class validate{
         $query = "SELECT * FROM `validation` WHERE username = '$username'";
         $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
-        return false;
+            return false;
         } else {
             return true;
         }
@@ -37,7 +38,6 @@ class validate{
         if($result->num_rows == 1){
             $row = $result->fetch_assoc();
             if(password_verify($pass,$row['password'])){
-                //return $row['username'];
                 return true;
             } else {
                 return false;
