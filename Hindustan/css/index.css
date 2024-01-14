@@ -7,9 +7,9 @@ body{
     background-position: cover;
 }
 .logo{
-    height: 50px;
+    height: 55px;
     padding: 3px;
-    margin-left:150px;
+    margin-left:180px;
 }
 .navbar{
     top: 0;
@@ -20,37 +20,11 @@ body{
     z-index: 1000;
 }
 .dropdown{
-    position: relative;
-    top: 80px;
-    left: 140px;
-    margin-left: 20px;
+    margin-top:80px;
+    display: flex;
+    margin-left: 180px;
 }
-.dropdown .btn-circle{
-    margin-left: 20px;
-    height: 500px;
-    width: 500px;
-    background-color: blue;
-}
-
-/* .wrapper{
-    margin-top :160px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100px;
-    width: 50%;
-    background-color: #eee;
-    padding: 20px 40px;
-    border-radius: 20px;
-    border: none;
-}
-
-.wrapper-content{
-    text-align: center;
-    font-size: 50px;
-    margin-top: 20px;
-} */
-
 svg{
-    margin-top: 100px;
-    margin-left: 100px;
+    height:75px;
+    width:75px;
 }
