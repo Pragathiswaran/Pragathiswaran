@@ -38,7 +38,7 @@ function checkUser(username) {
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     var response = JSON.parse(this.responseText);
-                    resolve(response.phpValue);
+                    resolve(response.user);
                 } else {
                     reject(new Error("Error in AJAX request"));
                 }
@@ -49,6 +49,28 @@ function checkUser(username) {
         xmlhttp.send(formData);
     });
 }
+
+// function checkpass(password) {
+//     return new Promise((resolve, reject) => {
+//         var xmlhttp = new XMLHttpRequest();
+//         var formData = new FormData();
+//         formData.append("password", password);
+
+//         xmlhttp.onreadystatechange = function () {
+//             if (this.readyState == 4) {
+//                 if (this.status == 200) {
+//                     var response = JSON.parse(this.responseText);
+//                     resolve(response.pass);
+//                 } else {
+//                     reject(new Error("Error in AJAX request"));
+//                 }
+//             }
+//         };
+
+//         xmlhttp.open("POST", "test.php", true);
+//         xmlhttp.send(formData);
+//     });
+// }
 
 async function validateinput() {
     let success = true;
@@ -62,7 +84,7 @@ async function validateinput() {
         setError(username, "Name is Required");
     } else {
         const user_available = await checkUser(usernameval);
-        if (!user_available) {
+        if (user_available) {
             success = false;
             setError(username, "Username already exists");
         } else {
@@ -127,7 +149,14 @@ async function validateinputlog() {
         success = false;
         setError(passwordlog, "Password must be at least 8 characters long");
     }
-      else {
+    else {
+        // const pass_available = await checkpass(_passwordlogval);
+        // if (!pass_available) {
+        //     success = false;
+        //     setError(passwordlog, "Invalid Password"); 
+        // } else {
+        //     setSuccess(passwordlog);
+        // }
         setSuccess(passwordlog);
     }
 

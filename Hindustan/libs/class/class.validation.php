@@ -18,6 +18,17 @@ class validate{
             return true;
         }
     }
+
+    // public function checkpass($password){
+    //     $query = "SELECT * FROM `validation` WHERE password = '$password'";
+    //     $result = $this->conn->query($query);
+    //     if ($result->num_rows > 0) {
+    //         return false;
+    //     } else {
+    //         return true;
+    //     }
+    // }
+
     public function Signup($name,$email,$phone,$pass){
        $option= [
             'cost'=> 9,
