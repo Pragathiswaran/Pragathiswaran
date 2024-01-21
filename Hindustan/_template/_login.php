@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (isset($_SESSION['username'])) {
-    header('Location: index.php');
-    exit();
-}
+// session_start();
+// if (isset($_SESSION['username'])) {
+//     header('Location: index.php');
+//     exit();
+// }
 $login = false;
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
@@ -15,12 +15,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
 if ($login === true) {
     if ($login_value === true) {
-        $sess = new session();
-        $sess_value = $sess->userSession($username, $password);
-        if ($sess_value) {
-            header('Location: index.php');
-            exit();
-        }
+        // $sess = new session();
+        // $sess_value = $sess->userSession($username, $password);
+        // if ($sess_value) {
+        //     header('Location: index.php');
+        //     exit();
+        // }
+        header('Location: index.php');
+        exit();
     }
 } else {
     ?>
